@@ -6,8 +6,12 @@ app = Flask(__name__)
 
 ID = '1234'
 SECRET = 'qwerty'
-OAUTH_SERVER = 'http://localhost:8000'
-RESOURCE_SERVER = 'http://localhost:9000'
+OAUTH_SERVER = 'http://oauth_server:8000'
+RESOURCE_SERVER = 'http://resource:9000'
+
+@app.route('/home')
+def home():
+    return "This is OAuth client"
 
 @app.route('/current_time')
 def get_current_time():

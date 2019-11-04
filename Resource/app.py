@@ -6,7 +6,11 @@ import json
 
 app = Flask(__name__)
 
-OAUTH_SERVER = 'http://localhost:8000'
+OAUTH_SERVER = 'http://oauth_server:8000'
+
+@app.route('/home')
+def home():
+    return "This is Resource server"
 
 @app.route('/current_time')
 def get_current_time():

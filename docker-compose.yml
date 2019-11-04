@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    oauth_client:
+        build: ./OAuth_client
+        ports:
+            - "5000:5000"
+        depends_on:
+            - resource
+            - oauth_server
+
+    oauth_server:
+        build: ./OAuth_server
+        ports:
+            - "8000:8000"
+
+    resource:
+        build: ./Resource
+        ports:
+            - "9000:9000"
+
+    redis:
+        image: "redis:alpine"

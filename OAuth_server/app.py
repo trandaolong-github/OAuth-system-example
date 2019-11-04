@@ -13,13 +13,17 @@ app = Flask(__name__)
           'client_secret': 'qwerty'} 
     This account is saved in database with the others '''
 
-rdb = redis.Redis()
+rdb = redis.Redis(host='redis', port=6379)
 rdb.mset({
     '1234': 'qwerty',
     'id1': 'pass1',
     'id2': 'pass2',
     'id3': 'pass3'
 })
+
+@app.route('/home')
+def home():
+    return "This is OAuth server"
 
 @app.route('/generate_token')
 def generate_token():
@@ -72,4 +76,4 @@ def validate_token():
         })
 
 if __name__ == '__main__':
-    app.run(port='8000', debug=True)
+    app.run(port='8000')

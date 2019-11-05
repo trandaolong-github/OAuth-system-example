@@ -13,6 +13,8 @@ services:
         build: ./OAuth_server
         ports:
             - "8000:8000"
+        depends_on:
+            - redis
 
     resource:
         build: ./Resource

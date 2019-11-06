@@ -21,5 +21,12 @@ services:
         ports:
             - "9000:9000"
 
+    system_test:
+        build: ./System_test
+        ports:
+            - "5001:5001"
+        depends_on:
+            - oauth_client
+
     redis:
         image: "redis:alpine"

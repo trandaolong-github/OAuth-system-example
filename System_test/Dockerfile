@@ -10,4 +10,4 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-CMD ["py.test", "test_oauth_system.py"]
+CMD py.test --color=yes --verbose --junit-xml=junit-xml-result.xml test_oauth_system.py

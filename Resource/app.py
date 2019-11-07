@@ -1,5 +1,5 @@
 from flask import Flask, request
-from datetime import date
+from datetime import datetime
 import requests
 from time import time
 import json
@@ -26,7 +26,7 @@ def get_current_time():
 
     return json.dumps({
         'status': 'OK',
-        'current_time': date.today().isoformat()
+        'current_time': datetime.today().isoformat()
     })
 
 @app.route('/epoch_time')

@@ -50,7 +50,7 @@ def generate_token():
     except Exception as e:
         return json.dumps({
             'status': 'ERROR',
-            'reason': e
+            'reason': '%s' % e
         })
 
 @app.route('/validate_token')
